@@ -11,11 +11,11 @@ bmiController.get("/getCalculation", async (req, res) => {
 bmiController.post("/calculateBMI", async (req, res) => {
   const { height, weight, userId } = req.body;
   //   console.log(req.body);
-
+  const heightMeter = height * 0.304;
   const BMI = new BMImodel({ height, weight, userId });
   try {
     await BMI.save();
-    const calculate = weight / (height * 0.304);
+    const calculate = weight / (heightMeter * heightMeter);
     // console.log(calculate);
     res.send({ bmi: calculate });
   } catch (e) {
