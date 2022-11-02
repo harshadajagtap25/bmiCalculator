@@ -16,8 +16,8 @@ app.get("/", (req, res) => {
 
 app.use(cors());
 app.use("/user", userController);
-app.use(authentication)
-app.use("/bmi", bmiController);
+// app.use(authentication)
+app.use("/bmi", authentication, bmiController);
 
 
 app.listen(PORT, async (req, res) => {
