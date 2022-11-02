@@ -4,7 +4,7 @@ const SECRET_KEY = process.env.SECRET_KEY || "qwerty";
 
 const authentication = (req, res, next) => {
   if (!req.headers.authorization) {
-    return res.send("Please login");
+    return res.send("Please login from Middelware");
   }
 
   const token = req.headers?.authorization?.split(" ")[1];
