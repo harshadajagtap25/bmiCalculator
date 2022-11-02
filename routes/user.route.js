@@ -6,7 +6,10 @@ const SECRET_KEY = process.env.SECRET_KEY || "qwerty";
 
 const { Router } = require("express");
 const userController = Router();
-
+userController.get("/", async (req, res) => {
+  const user = await UserModel.find();
+  res.send(user);
+});
 userController.post("/signup", async (req, res) => {
   let { email, password, name } = req.body;
   bcrypt
